@@ -1,15 +1,17 @@
 class BitGetter {
-  constructor(uint8Array) {
+  private uint8Array: Uint8Array;
+
+  constructor(uint8Array: Uint8Array) {
     this.uint8Array = uint8Array;
   }
 
-  get(index, order) {
+  get(index: number, order: number) {
     const byte = this.uint8Array[index];
     const bitMask = 1 << order;
     return (byte & bitMask) >> order;
   }
 
-  set(index, bitIndex, value) {
+  set(index: number, bitIndex: number, value: 0 | 1) {
     if (value === 0) {
       this.uint8Array[index] &= ~(1 << bitIndex);
     } else if (value === 1) {

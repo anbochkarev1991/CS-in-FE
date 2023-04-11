@@ -1,0 +1,20 @@
+{
+  "name": "cs-in-fe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anbochkarev1991/CS-in-FE.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anbochkarev1991/CS-in-FE/issues"
+  },
+  "homepage": "https://github.com/anbochkarev1991/CS-in-FE#readme"
+}
