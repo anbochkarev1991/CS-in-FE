@@ -7,6 +7,6 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "src/second-lecture/filters/script.js"],
   "exclude": ["node_modules"],
 }
