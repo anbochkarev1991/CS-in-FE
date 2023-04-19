@@ -1,4 +1,4 @@
-class BitGetter {
+export class BitGetter {
   private uint8Array: Uint8Array;
 
   constructor(uint8Array: Uint8Array) {

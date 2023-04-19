@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/anbochkarev1991/CS-in-FE/issues"
   },
-  "homepage": "https://github.com/anbochkarev1991/CS-in-FE#readme"
+  "homepage": "https://github.com/anbochkarev1991/CS-in-FE#readme",
+  "devDependencies": {
+    "@types/node": "^18.15.11"
+  }
 }
