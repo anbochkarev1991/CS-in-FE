@@ -1,4 +1,6 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.BitGetter = void 0;
 class BitGetter {
     constructor(uint8Array) {
         this.uint8Array = uint8Array;
@@ -20,6 +22,7 @@ class BitGetter {
         }
     }
 }
+exports.BitGetter = BitGetter;
 const bitGetter = new BitGetter(new Uint8Array([0b1110, 0b1101]));
 console.log(bitGetter.get(0, 1)); // 1
 console.log(bitGetter.get(1, 1)); // 0
