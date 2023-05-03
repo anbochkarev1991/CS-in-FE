@@ -114,7 +114,7 @@ testList.insert(1, 30);
 testList.update(1, 25);
 // console.log(testList);
 // console.log(testList.get(1)); // Output: 25
-testList.delete(1);
+// testList.delete(1);
 // console.log(testList.get(1)); // Output: 30
 for (const el of testList) {
     console.log(el);
