@@ -3,13 +3,13 @@ import { BitGetter } from '../../first-lecture/bitGetter';
 type SchemaElement = [number, string];
 type Data =  (number | string | boolean)[];
 
-function throwTypeError(type: string, value: number | string | boolean): void {
+export function throwTypeError(type: string, value: number | string | boolean): void {
   if (typeof value !== type && type !== 'ascii') {
     throw new Error(`Type of ${value} does not match with type ${type} from schema`);
   }
 }
 
-function throwLengthError(length: number, value: number | string | boolean): void {
+export function throwLengthError(length: number, value: number | string | boolean): void {
   let binary = '';
   if (typeof value === 'string') {
     binary = convertStringToBinaryAsAscii(value);
@@ -22,7 +22,7 @@ function throwLengthError(length: number, value: number | string | boolean): voi
   }
 }
 
-function convertStringToBinaryAsAscii(value: string): string {
+export function convertStringToBinaryAsAscii(value: string): string {
   let binary = '';
   for (let i = 0; i < value.length; i++) {
     const asciiCode = value.charCodeAt(i);
@@ -33,7 +33,7 @@ function convertStringToBinaryAsAscii(value: string): string {
   return binary;
 }
 
-function decodeAsciiChars(binaryString: string, bitsForString: number) {
+export function decodeAsciiChars(binaryString: string, bitsForString: number) {
   const charsCount = Math.ceil(bitsForString / 8);
   let decodedString = '';
 
@@ -49,7 +49,7 @@ function decodeAsciiChars(binaryString: string, bitsForString: number) {
   return decodedString;
 }
 
-function encodeElement(el: any, index: number, bits: number) {
+export function encodeElement(el: any, index: number, bits: number) {
   if (el.toString(2).length > bits) {
     throw new Error(`Bits length ${bits} for element ${el} does not match schema`);
   }
@@ -58,7 +58,7 @@ function encodeElement(el: any, index: number, bits: number) {
   return binary;
 }
 
-function encode(data: Data, schema: SchemaElement[]): ArrayBuffer | void {
+export function encode(data: Data, schema: SchemaElement[]): ArrayBuffer | void {
   
   try {
     if (data.length !== schema.length) {
@@ -112,7 +112,7 @@ function encode(data: Data, schema: SchemaElement[]): ArrayBuffer | void {
   }
 }
 
-function decode(data: ArrayBuffer, schema: SchemaElement[]): Data | void {
+export function decode(data: ArrayBuffer, schema: SchemaElement[]): Data | void {
   try {
     const view = new Uint8Array(data);
     const bitGetter = new BitGetter(view);

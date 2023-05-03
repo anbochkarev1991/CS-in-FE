@@ -1,11 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.decode = exports.encode = exports.encodeElement = exports.decodeAsciiChars = exports.convertStringToBinaryAsAscii = exports.throwLengthError = exports.throwTypeError = void 0;
 const bitGetter_1 = require("../../first-lecture/bitGetter");
 function throwTypeError(type, value) {
     if (typeof value !== type && type !== 'ascii') {
         throw new Error(`Type of ${value} does not match with type ${type} from schema`);
     }
 }
+exports.throwTypeError = throwTypeError;
 function throwLengthError(length, value) {
     let binary = '';
     if (typeof value === 'string') {
@@ -18,6 +20,7 @@ function throwLengthError(length, value) {
         throw new Error(`Binary length of ${value} does not match with length ${length} from schema`);
     }
 }
+exports.throwLengthError = throwLengthError;
 function convertStringToBinaryAsAscii(value) {
     let binary = '';
     for (let i = 0; i < value.length; i++) {
@@ -27,6 +30,7 @@ function convertStringToBinaryAsAscii(value) {
     }
     return binary;
 }
+exports.convertStringToBinaryAsAscii = convertStringToBinaryAsAscii;
 function decodeAsciiChars(binaryString, bitsForString) {
     const charsCount = Math.ceil(bitsForString / 8);
     let decodedString = '';
@@ -36,6 +40,7 @@ function decodeAsciiChars(binaryString, bitsForString) {
     }
     return decodedString;
 }
+exports.decodeAsciiChars = decodeAsciiChars;
 function encodeElement(el, index, bits) {
     if (el.toString(2).length > bits) {
         throw new Error(`Bits length ${bits} for element ${el} does not match schema`);
@@ -43,6 +48,7 @@ function encodeElement(el, index, bits) {
     const binary = el & (2 ** 32 - 1 >>> (32 - bits));
     return binary;
 }
+exports.encodeElement = encodeElement;
 function encode(data, schema) {
     try {
         if (data.length !== schema.length) {
@@ -88,6 +94,7 @@ function encode(data, schema) {
         console.error(error);
     }
 }
+exports.encode = encode;
 function decode(data, schema) {
     try {
         const view = new Uint8Array(data);
@@ -122,6 +129,7 @@ function decode(data, schema) {
         console.error(error);
     }
 }
+exports.decode = decode;
 const schema = [
     [2, 'number'],
     [2, 'number'],
