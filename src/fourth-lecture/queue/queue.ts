@@ -1,7 +1,7 @@
-class Queue<T> {
-  public head: QueueNode<T> | null;
-  private tail: QueueNode<T> | null;
-  private size: number;
+export class Queue<T> {
+  head: QueueNode<T> | null;
+  tail: QueueNode<T> | null;
+  size: number;
 
   constructor() {
     this.head = null;
@@ -57,7 +57,7 @@ class Queue<T> {
   }
 }
 
-class QueueNode<T> {
+export class QueueNode<T> {
   constructor(
     public value: T,
     public next: QueueNode<T> | null = null,

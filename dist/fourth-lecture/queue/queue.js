@@ -1,4 +1,6 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.QueueNode = exports.Queue = void 0;
 class Queue {
     constructor() {
         this.head = null;
@@ -49,12 +51,14 @@ class Queue {
         this.size++;
     }
 }
+exports.Queue = Queue;
 class QueueNode {
     constructor(value, next = null) {
         this.value = value;
         this.next = next;
     }
 }
+exports.QueueNode = QueueNode;
 const queue = new Queue();
 queue.push(10);
 queue.push(11);
